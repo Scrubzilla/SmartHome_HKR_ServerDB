@@ -23,6 +23,7 @@ def listenFromArduino():
 def keyInput():
     while 1:
         command = input("Write Command: ")
+        print(command)
         commandToArduino(command)
         if command == "end":
             ser.close()  # Closes serial connection
