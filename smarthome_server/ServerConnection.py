@@ -1,6 +1,8 @@
 from threading import Thread
-from Test_Connection_Examples import XbeeConnection
-from Test_Connection_Examples import UnitConnection
+
+from smarthome_server import XbeeConnectionInit
+from smarthome_server import UnitConnection
+
 
 class ServerConnection(Thread):
 
@@ -12,12 +14,12 @@ class ServerConnection(Thread):
 
     def run(self):
         # The connection will then create a connection to the device and send it and immediatly after listen for a response.
-        connection = XbeeConnection.XbeeConnection()
-        connection.commandToArduino(self.message)
+        connection = XbeeConnectionInit.Singleton.get()
+        connection.command_to_arduino(self.message)
 
-        response = connection.listenFromArduino()
+        response = connection.listen_to_arduino()
         print("Response from the arduino is: " + response)
 
         #When a response has been recieved, it will send it back to the unit.
-        unitConnection = UnitConnection.UnitConnection(0,response,0)
+        unitConnection = UnitConnection.UnitConnection(0, response, 0)
         unitConnection.send_to_api()
