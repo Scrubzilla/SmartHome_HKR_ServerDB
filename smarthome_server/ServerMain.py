@@ -18,9 +18,9 @@ def main():
 
 #When a message is recieved on the pubnub channel, a new connection that will send it to the arduino and then to the unit is created.
 def create_connection(message, channel):
-    print("New message from a unit: " + message)
+    print("New message from a unit: " + message['commandId'])
 
-    connection = ServerConnection(connectionMessage=message)
+    connection = ServerConnection(connectionMessage=message['commandId'])
     connection.start()
 
 #If there is an error with the connection, it will print it.
