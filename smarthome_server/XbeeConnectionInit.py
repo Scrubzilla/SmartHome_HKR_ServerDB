@@ -2,10 +2,10 @@ import serial
 
 class Singleton(object):
     instance = None
-    PORT = 'COM9'                         #Modify port to the one that the XBEE is connected to.
+    PORT = 'COM7'                         #Modify port to the one that the XBEE is connected to.
     BAUD_RATE = 9600
     ser = serial.Serial(PORT, BAUD_RATE)  # Opens serial connection
-    deviceBusy = False;
+    deviceBusy = False
 
     @classmethod
     def get(cls):
@@ -26,8 +26,8 @@ class Singleton(object):
         return response
 
     def get_arduino_is_busy(self):
-        return self.deviceBusy;
+        return self.deviceBusy
 
     def set_arduino_is_busy(self, status):
-        self.deviceBusy = status;
+        self.deviceBusy = status
 
