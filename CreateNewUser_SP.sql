@@ -5,16 +5,18 @@
 -- 1 -> FAIL (Either the username or email is already taken)
 
 CREATE PROCEDURE NewUser
-  @username = username varchar(24) = null,
-  @password = password varchar(32) = null,
-  @email = email varchar(40) = null
+  @username varchar(24) = null,
+  @password varchar(32) = null,
+  @email varchar(40) = null
 
   AS
-    BEGIN
 
-    -- If the username or email already exists, return FAIL
-    IF (SELECT * FROM [users] WHERE username = @username OR email = @email)
-      return 1;
+
+  -- If the username or email already exists, return FAIL
+  IF EXISTS(SELECT * FROM [users] WHERE username = @username OR email = @email)
+     BEGIN
+
+      RETURN 1
 
       END
 
@@ -26,7 +28,7 @@ CREATE PROCEDURE NewUser
       INSERT INTO [dbo].[users] (Username, User_password, Email)
       VALUES (@username, @password, @email)
 
-      return 0;
+      RETURN  0
 
       END
 
