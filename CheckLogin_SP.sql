@@ -9,18 +9,24 @@ CREATE PROCEDURE CheckLogin
   @password varchar(32) = null
 
 AS
-  BEGIN
 
   -- If username and password exists return OK
-  IF (SELECT * FROM [users] WHERE username = @username AND password = @password)
-    return 0;
+  IF EXISTS(SELECT * FROM [users] WHERE username = @username AND user_password = @password)
+
+    BEGIN
+
+    RETURN 0
 
     END
+
+
 
 
   ELSE
 
     BEGIN
-    return 1;
+
+    RETURN 1
+
     END
 
