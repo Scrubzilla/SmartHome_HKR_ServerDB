@@ -1,6 +1,6 @@
 import serial
 import sys
-from smarthome_server import LogHolder
+from LogHolder import LogHolder
 
 class XbeeConnectionInit(object):
     instance = None
