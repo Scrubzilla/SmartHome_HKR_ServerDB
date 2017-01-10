@@ -4,6 +4,7 @@ from ServerConnection import ServerConnection
 from XbeeListener import XbeeListener
 from LogPrinter import LogPrinter
 from LogHolder import LogHolder
+import time
 
 #Sets up a pubnub channel and starts to listen to it, also starts to listen to calls from the arduino.
 def main():
@@ -26,6 +27,8 @@ def create_connection(message, channel):
     print("New message from a unit: " + message['commandId'])
     connection = ServerConnection(connectionMessage=message['commandId'])
     connection.start()
+    # Sleep for errorhandling to prevent spamming
+    time.sleep(0.5)
 
 #If there is an error with the connection, it will print it.
 def connection_error():

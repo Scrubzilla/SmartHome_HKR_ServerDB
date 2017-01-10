@@ -17,14 +17,18 @@ class XbeeConnectionInit(object):
 
     # Used to send a command to the arduino
     def command_to_arduino(self, command):
+
         print("Object Singelton: Writing to arduino: ", command)
-        self.ser.write(command.encode())  # Outgoing command: encodes the string to bytes
-        print("Object Singelton: Wrote successfully to the arduino.")
+        if (len(command) == 9):
+            self.ser.write(command.encode())  # Outgoing command: encodes the string to bytes
+            print("Object Singelton: Wrote successfully to the arduino.")
+        else:
+            print("Object Singelton: Command " + command + " was not sent to the arduino.")
 
         logStorage = LogHolder.get()
         logStorage.add_text_to_log("The message was successfully forwared to the arduino (" + command + ")")
 
-        if "99999999" in command:
+        if "999999999" in command:
             exit()
 
     # Used to read a command from the arduino

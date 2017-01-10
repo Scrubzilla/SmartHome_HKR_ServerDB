@@ -17,5 +17,6 @@ class ServerConnection(Thread):
         logStorage = LogHolder.get()
         logStorage.add_text_to_log("Message was recieved from a unit: " + self.message)
 
-        connection = XbeeConnectionInit.get()
-        connection.command_to_arduino(self.message)
+        if (len(self.message) == 9):
+            connection = XbeeConnectionInit.get()
+            connection.command_to_arduino(self.message)

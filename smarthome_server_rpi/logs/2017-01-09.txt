@@ -1,0 +1,10 @@
+Got a response from the arduino:350000001
+The xbee responded with: 350000001, was successfully relayed to the unit
+Got a response from the arduino:350000001
+The xbee responded with: 350000001, was successfully relayed to the unit
+Got a response from the arduino:350000001
+The xbee responded with: 350000001, was successfully relayed to the unit
+Got a response from the arduino:350000001
+The xbee responded with: 350000001, was successfully relayed to the unit
+Message was recieved from a unit: 270000000
+The message was successfully forwared to the arduino (270000000)
