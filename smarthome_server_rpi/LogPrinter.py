@@ -51,4 +51,4 @@ class LogPrinter(Thread):
                 if datetime.datetime.now() - file_modified > datetime.timedelta(days=7):    #Checks if the file is now older than 7 days
                     os.remove(curpath)      #If it is, remove it
                     deletedFilesCount += 1
-        print("Deleted " + deletedFilesCount + " files.")
+        #print("Deleted " + str(deletedFilesCount) + " files.")

@@ -43,7 +43,7 @@ class XbeeListener(Thread):
 
 
 def check_message_emergency(self, message):
-    emergencyList = ["340001", "350001", "360001"]
+    emergencyList = ["340000001", "350000001", "360000001"]
 
     for i in range(0, len(emergencyList)):
         if (message) in emergencyList[i]:
