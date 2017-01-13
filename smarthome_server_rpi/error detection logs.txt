@@ -1,18 +1,18 @@
 https://www.pubnub.com/docs/python/pubnub-python-sdk-v4
 bad was bad because version on pc was 3.8.3 
-running lastest version 4.0.4 means that we need to rewrite all codes
+running latest version 4.0.4 means that we need to rewrite all codes
 
 Pip3 error needed to remove old version and reinstall using 'sudo easyinstall3 pip' command to fix problem
-This error cozing error when installing newer python modules
+This error causing error when installing newer python modules
 
-when importing and running python files, ocurring error that module not found
+when importing and running python files, occurring error that module not found
 fixing the error was to replace 'smarthome_server' with the actual name of the file
 
 code errors example from xbeelistener.py:
 wrong: unitConnection = UnitConnection.UnitConnection("0", xbeeMessage, "0")
 correct: unitConnection = UnitConnection("0", xbeeMessage, "0")
-pycharm python scripts are not compatable with on running in standalone, 
-this cozes problem with correct reading and other occuring problems.
+pycharm python scripts are not compatible with on running in standalone,
+this causes problem with correct reading and other occurring problems.
 
 
 
